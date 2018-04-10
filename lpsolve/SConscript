@@ -1,0 +1,23 @@
+#! python scons
+
+Import("env")
+
+env_lpsolve = env.Clone()
+
+env_lpsolve.AppendUnique(
+	CPPDEFINES=['NDEBUG','CHECK_SOLUTION','YY_NEVER_INTERACTIVE','PARSER_LP','INVERSE_ACTIVE=INVERSE_LUSOL','RoleIsExternalInvEngine']
+)
+
+srcs = Split("""colamd.c commonlib.c fortify.c ini.c lp_crash.c lp_Hash.c
+	lp_lib.c lp_LUSOL.c lp_matrix.c lp_MDO.c lp_mipbb.c lp_MPS.c lp_params.c
+	lp_presolve.c lp_price.c lp_pricePSE.c lp_report.c lp_rlp.c lp_scale.c
+	lp_simplex.c lp_solve.c lp_SOS.c lp_utils.c lp_wlp.c lusol.c mmio.c
+	myblas.c yacc_read.c""")
+
+objs = []
+for i in srcs:
+	objs.append(env_lpsolve.SharedObject(i))
+
+#obs = env_lpsolve.Library('lpsolve',srcs)
+
+Return('objs')

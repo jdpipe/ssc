@@ -1,4 +1,4 @@
-#ifndef _CODE_GENERATOR_INPUTS_H_
+ _CODE_GENERATOR_INPUTS_H_
 #define _CODE_GENERATOR_INPUTS_H_
 
 #include <stdio.h>
@@ -7,6 +7,7 @@
 #include "sscapi.h"
 #include <string>
 #include <type_traits>
+#include <map>
 
 static ssc_bool_t my_handler(ssc_module_t p_mod, ssc_handler_t p_handler, int action,
 	float f0, float f1, const char *s0, const char *s1, void *user_data)
@@ -141,5 +142,5 @@ static int modify_ssc_data_and_run_module(ssc_data_t &data, std::string module_n
 	return run_module(data, module_name);
 }
 
-
 #endif
+

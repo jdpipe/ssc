@@ -292,6 +292,7 @@ __pycache__/
 *.so
 *.a
 *.o
+*.os
 *.lib
 *.dll
 *.d
@@ -337,3 +338,10 @@ build_linux/Test
 build_linux/config.status
 
 linux_test\.txt
+
+# CScope database
+cscope.*
+
+# SCons files
+.scons*
+

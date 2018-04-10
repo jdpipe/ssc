@@ -1,0 +1,23 @@
+#! python scons
+
+Import('env')
+
+env_test = env.Clone()
+
+env_test.AppendUnique(
+	CPPPATH=['input_cases','shared_test','ssc_test','tcs_test','#/ssc','#/tcs','#/solarpilot','#/shared']
+)
+
+srcs = Split("""input_cases/tcs_trough_physical_input.cpp input_cases/weather_inputs.cpp shared_test/lib_battery_test.cpp shared_test/lib_irradproc_test.cpp shared_test/lib_util_test.cpp shared_test/lib_weatherfile_test.cpp shared_test/lib_windfile_test.cpp shared_test/lib_windwakemodel_test.cpp shared_test/lib_windwatts_test.cpp ssc_test/cmod_windpower_test.cpp ssc_test/cmod_pvsamv1_test.cpp tcs_test/csp_solver_core_test.cpp main.cpp""")
+
+VariantDir("gtestbuild","/usr/src/gtest")
+
+lib = env_test.Library("gtestbuild/gtest_main",["gtestbuild/src/gtest-all.cc"]
+	,CPPPATH=['/usr/src/gtest']
+)
+
+env_test.Program('test',srcs + lib
+	,LIBS=['ssc','pthread','dl']
+	,LIBPATH=['#']
+)
+

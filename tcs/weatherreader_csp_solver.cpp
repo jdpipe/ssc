@@ -107,7 +107,7 @@ enum {	P_FILENAME,
 
 		N_MAX };
 
-tcsvarinfo weatherreader_variables[] = {
+static tcsvarinfo weatherreader_variables[] = {
 	/* DIRECTION    DATATYPE      INDEX       NAME           LABEL                                  UNITS      GROUP    META    DEFAULTVALUE */
 	{ TCS_PARAM,   TCS_STRING,   P_FILENAME, "file_name",   "Weather file name on local computer",  "",        "",      "",     "" },
 

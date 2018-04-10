@@ -1,0 +1,20 @@
+#! python scons
+
+Import("env")
+
+srcs = Split("""lsqfit.cpp lib_snowmodel.cpp lib_iec61853.cpp
+	lib_cec6par.cpp lib_financial.cpp lib_geothermal.cpp lib_irradproc.cpp lib_physics.cpp 
+	lib_powerblock.cpp lib_power_electronics.cpp lib_pvinv.cpp lib_pvmodel.cpp lib_pvshade.cpp 
+	lib_pvwatts.cpp lib_sandia.cpp lib_util.cpp lib_weatherfile.cpp lib_windfile.cpp lib_wind_obos.cpp 
+	lib_windwakemodel.cpp lib_windwatts.cpp lib_battery.cpp lib_battery_dispatch.cpp 
+	lib_miniz.cpp lib_pv_shade_loss_mpp.cpp""")
+
+objs = []
+
+for s in srcs:
+	objs.append(env.SharedObject(s))
+
+#nv.Library('shared.a',srcs)
+
+Return('objs')
+
