@@ -1,3 +1,21 @@
+# Modified version of NREL SSC (SAM Simulation Core)
+
+* Added support for building with SCons
+* Trying to link to OS-provided version of nlopt
+* Aiming for integration of SolarPILOT with Modelica simulations via [SolarTherm](https://github.com/solartherm/SolarTherm).
+
+To build the code on Ubuntu:
+
+    cd ~/ssc (wherever you have the code)
+    sudo apt install libgtest-dev libnlopt-dev
+    scons -j8
+
+To run the test suite
+
+    cd ~/ssc (wherever you have the code)
+    SSCDIR=. LD_LIBRARY_PATH=. test/test
+
+
 # SSC (SAM Simulation Core)
 
 The SSC Open Source Project repository contains the source code for the technology and financial models contained within the National Renewable Energy Laboratory's System Advisor Model (SAM). For more details about SAM's capabilities, see the SAM website at [https://sam.nrel.gov/](https://sam.nrel.gov).
