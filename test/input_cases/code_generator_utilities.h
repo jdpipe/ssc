@@ -1,4 +1,4 @@
- _CODE_GENERATOR_INPUTS_H_
+#ifndef _CODE_GENERATOR_INPUTS_H_
 #define _CODE_GENERATOR_INPUTS_H_
 
 #include <stdio.h>
